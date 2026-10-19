@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome - Landing Page</title>
+    <title>Pixel Axolotl - Landing Page</title>
     <style>
         * {
             margin: 0;
@@ -13,20 +13,20 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #fff;
+            line-height: 1.7;
+            color: #2c3e50;
+            background: #faf8f5;
         }
 
         header {
             position: fixed;
             width: 100%;
             top: 0;
-            background: rgba(255, 255, 255, 0.98);
+            background: rgba(250, 248, 245, 0.95);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #f0e8e0;
             z-index: 1000;
-            padding: 1rem 2rem;
+            padding: 1.2rem 2rem;
         }
 
         nav {
@@ -38,145 +38,256 @@
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 700;
-            color: #2563eb;
+            color: #0d6b6b;
             text-decoration: none;
+            letter-spacing: -0.5px;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         nav a {
             text-decoration: none;
-            color: #555;
-            transition: color 0.3s;
+            color: #2c3e50;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+            font-weight: 500;
         }
 
         nav a:hover {
-            color: #2563eb;
+            color: #0d6b6b;
         }
 
         .hero {
             margin-top: 70px;
-            padding: 6rem 2rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            padding: 5rem 2rem;
+            background: linear-gradient(180deg, #faf8f5 0%, #f2ede5 100%);
+            color: #2c3e50;
             text-align: center;
+            min-height: 680px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 700px;
             margin: 0 auto;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
+            font-size: 3.2rem;
+            margin-bottom: 0.8rem;
+            line-height: 1.15;
+            color: #0d6b6b;
+            font-weight: 800;
+            letter-spacing: -1px;
         }
 
         .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            opacity: 0.8;
+            color: #2c3e50;
+            font-weight: 400;
+        }
+
+        /* SVG AXOLOTL ANIMATION */
+        .axolotl-container {
+            margin: 2rem 0;
+            display: flex;
+            justify-content: center;
+            perspective: 1000px;
+            min-height: 200px;
+        }
+
+        .axolotl {
+            width: 300px;
+            height: auto;
+            max-width: 100%;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .tail-element {
+            animation: wag 1.5s ease-in-out infinite;
+            transform-origin: 220px 100px;
+        }
+
+        @keyframes wag {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-15deg); }
+            75% { transform: rotate(15deg); }
+        }
+
+        .gill-left {
+            animation: gill-wave-left 0.8s ease-in-out infinite;
+            transform-origin: 90px 80px;
+        }
+
+        .gill-right {
+            animation: gill-wave-right 0.8s ease-in-out infinite;
+            transform-origin: 210px 80px;
+        }
+
+        @keyframes gill-wave-left {
+            0%, 100% { transform: scaleX(1); }
+            50% { transform: scaleX(1.2); }
+        }
+
+        @keyframes gill-wave-right {
+            0%, 100% { transform: scaleX(1); }
+            50% { transform: scaleX(1.2); }
+        }
+
+        .leg-front-left {
+            animation: step-left 1.5s ease-in-out infinite;
+            transform-origin: 110px 140px;
+        }
+
+        .leg-front-right {
+            animation: step-right 1.5s ease-in-out infinite;
+            transform-origin: 190px 140px;
+        }
+
+        .leg-back-left {
+            animation: step-left 1.5s ease-in-out infinite;
+            transform-origin: 85px 130px;
+        }
+
+        .leg-back-right {
+            animation: step-right 1.5s ease-in-out infinite;
+            transform-origin: 215px 130px;
+        }
+
+        @keyframes step-left {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-4px); }
+            75% { transform: translateX(4px); }
+        }
+
+        @keyframes step-right {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(4px); }
+            75% { transform: translateX(-4px); }
         }
 
         .cta-button {
             display: inline-block;
-            padding: 1rem 2.5rem;
-            background: white;
-            color: #667eea;
+            padding: 0.95rem 2.2rem;
+            background: #ff5757;
+            color: white;
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 6px;
             font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: background 0.2s, box-shadow 0.2s;
             cursor: pointer;
             border: none;
-            font-size: 1rem;
+            font-size: 0.95rem;
+            margin: 0 0.5rem;
         }
 
         .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            background: #e63d3d;
+            box-shadow: 0 4px 16px rgba(255, 87, 87, 0.25);
         }
 
         .cta-button.secondary {
             background: transparent;
-            color: white;
-            border: 2px solid white;
-            margin-left: 1rem;
+            color: #0d6b6b;
+            border: 2px solid #0d6b6b;
         }
 
         .cta-button.secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: #0d6b6b;
+            color: white;
         }
 
         .features {
-            padding: 6rem 2rem;
-            background: #f9fafb;
+            padding: 7rem 2rem;
+            background: #faf8f5;
         }
 
         .features-container {
-            max-width: 1200px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #111;
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            color: #0d6b6b;
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
         .section-subtitle {
             text-align: center;
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 3rem;
+            font-size: 1rem;
+            color: #2c3e50;
+            margin-bottom: 4rem;
+            font-weight: 400;
+            opacity: 0.8;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
         }
 
         .feature-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            background: transparent;
+            padding: 1.5rem;
+            border-radius: 0;
+            box-shadow: none;
+            border: none;
+            border-left: 3px solid #ff5757;
+            transition: opacity 0.2s;
         }
 
         .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            opacity: 0.8;
         }
 
         .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+            display: block;
         }
 
         .feature-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: #111;
+            font-size: 1.1rem;
+            margin-bottom: 0.6rem;
+            color: #0d6b6b;
+            font-weight: 700;
+            letter-spacing: -0.3px;
         }
 
         .feature-card p {
-            color: #666;
-            line-height: 1.8;
+            color: #2c3e50;
+            line-height: 1.7;
+            font-size: 0.95rem;
         }
 
         .cta-section {
             padding: 6rem 2rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(180deg, #0d6b6b 0%, #0a4d4d 100%);
             color: white;
             text-align: center;
         }
@@ -187,19 +298,23 @@
         }
 
         .cta-section h2 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             margin-bottom: 1rem;
+            color: white;
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
         .cta-section p {
-            font-size: 1.1rem;
+            font-size: 1rem;
             margin-bottom: 2rem;
-            opacity: 0.95;
+            opacity: 0.9;
+            color: #e8f4f4;
         }
 
         footer {
-            background: #1f2937;
-            color: #9ca3af;
+            background: #2c3e50;
+            color: #bdc3c7;
             padding: 3rem 2rem;
             text-align: center;
         }
@@ -218,18 +333,20 @@
         }
 
         .footer-links a {
-            color: #9ca3af;
+            color: #bdc3c7;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: color 0.2s;
+            font-size: 0.9rem;
         }
 
         .footer-links a:hover {
-            color: white;
+            color: #ff5757;
         }
 
         .footer-bottom {
-            border-top: 1px solid #374151;
+            border-top: 1px solid #34495e;
             padding-top: 2rem;
+            font-size: 0.85rem;
         }
 
         @media (max-width: 768px) {
@@ -246,10 +363,8 @@
                 font-size: 0.9rem;
             }
 
-            .cta-button.secondary {
-                margin-left: 0;
-                display: block;
-                margin-top: 0.5rem;
+            .cta-button {
+                margin: 0.25rem;
             }
 
             .section-title {
@@ -259,13 +374,17 @@
             .cta-section h2 {
                 font-size: 1.8rem;
             }
+
+            .axolotl {
+                transform: scale(0.8);
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <a href="#" class="logo">Brand</a>
+            <a href="#" class="logo">🎀 Axolotl</a>
             <ul>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#pricing">Pricing</a></li>
@@ -276,8 +395,74 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Welcome to Your Next Big Idea</h1>
-            <p>Build something amazing with our powerful platform. Get started in minutes, scale effortlessly.</p>
+            <h1>Meet Your Pixel Axolotl Friend</h1>
+            <p>Cute, animated, and ready to bring smiles to your day!</p>
+
+            <!-- SVG AXOLOTL ILLUSTRATION -->
+            <div class="axolotl-container">
+                <svg class="axolotl" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Tail -->
+                    <path d="M 220 100 Q 280 80 320 90 Q 280 100 220 110 Z" fill="#ff6ba6" class="tail-element"/>
+
+                    <!-- Body -->
+                    <ellipse cx="150" cy="110" rx="70" ry="50" fill="#ff6ba6"/>
+                    <ellipse cx="150" cy="110" rx="68" ry="48" fill="#ff8bb8"/>
+
+                    <!-- Left Gill -->
+                    <g class="gill-left">
+                        <path d="M 90 80 Q 75 60 70 40 Q 72 60 90 85" fill="#ffc8f0" opacity="0.8"/>
+                        <path d="M 85 85 Q 68 65 62 45 Q 64 65 85 90" fill="#ffb3d9" opacity="0.7"/>
+                        <path d="M 95 90 Q 82 70 78 50 Q 80 70 95 95" fill="#ffc8f0" opacity="0.8"/>
+                    </g>
+
+                    <!-- Right Gill -->
+                    <g class="gill-right">
+                        <path d="M 210 80 Q 225 60 230 40 Q 228 60 210 85" fill="#ffc8f0" opacity="0.8"/>
+                        <path d="M 215 85 Q 232 65 238 45 Q 236 65 215 90" fill="#ffb3d9" opacity="0.7"/>
+                        <path d="M 205 90 Q 218 70 222 50 Q 220 70 205 95" fill="#ffc8f0" opacity="0.8"/>
+                    </g>
+
+                    <!-- Head -->
+                    <ellipse cx="150" cy="75" rx="55" ry="50" fill="#ff6ba6"/>
+                    <ellipse cx="150" cy="75" rx="53" ry="48" fill="#ff8bb8"/>
+
+                    <!-- Smile -->
+                    <path d="M 130 85 Q 150 95 170 85" stroke="#e84b8a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+                    <!-- Left Eye -->
+                    <circle cx="130" cy="65" r="8" fill="#1a1a1a"/>
+                    <circle cx="132" cy="63" r="3" fill="white"/>
+
+                    <!-- Right Eye -->
+                    <circle cx="170" cy="65" r="8" fill="#1a1a1a"/>
+                    <circle cx="172" cy="63" r="3" fill="white"/>
+
+                    <!-- Front Left Leg -->
+                    <g class="leg-front-left">
+                        <ellipse cx="110" cy="150" rx="10" ry="18" fill="#ff6ba6"/>
+                        <ellipse cx="110" cy="168" rx="12" ry="8" fill="#ffb3d9"/>
+                    </g>
+
+                    <!-- Front Right Leg -->
+                    <g class="leg-front-right">
+                        <ellipse cx="190" cy="150" rx="10" ry="18" fill="#ff6ba6"/>
+                        <ellipse cx="190" cy="168" rx="12" ry="8" fill="#ffb3d9"/>
+                    </g>
+
+                    <!-- Back Left Leg -->
+                    <g class="leg-back-left">
+                        <ellipse cx="85" cy="140" rx="9" ry="16" fill="#ff6ba6"/>
+                        <ellipse cx="85" cy="156" rx="11" ry="7" fill="#ffb3d9"/>
+                    </g>
+
+                    <!-- Back Right Leg -->
+                    <g class="leg-back-right">
+                        <ellipse cx="215" cy="140" rx="9" ry="16" fill="#ff6ba6"/>
+                        <ellipse cx="215" cy="156" rx="11" ry="7" fill="#ffb3d9"/>
+                    </g>
+                </svg>
+            </div>
+
             <button class="cta-button">Get Started</button>
             <button class="cta-button secondary">Learn More</button>
         </div>
@@ -285,44 +470,44 @@
 
     <section class="features" id="features">
         <div class="features-container">
-            <h2 class="section-title">Why Choose Us</h2>
-            <p class="section-subtitle">Everything you need to succeed</p>
+            <h2 class="section-title">Why Our Axolotl?</h2>
+            <p class="section-subtitle">Delightfully designed for maximum charm</p>
 
             <div class="features-grid">
                 <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <h3>Smooth Animation</h3>
+                    <p>Watch our adorable axolotl float gracefully with fluid CSS animations that bring it to life.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Beautiful Design</h3>
+                    <p>Pixel-perfect craftsmanship with a charming pastel color palette that's easy on the eyes.</p>
+                </div>
+
+                <div class="feature-card">
                     <div class="feature-icon">⚡</div>
-                    <h3>Fast & Reliable</h3>
-                    <p>Lightning-quick performance with 99.9% uptime. Built for speed and reliability you can depend on.</p>
+                    <h3>Pure CSS</h3>
+                    <p>No images, no JavaScript required. Lightweight, fast, and works everywhere.</p>
                 </div>
 
                 <div class="feature-card">
-                    <div class="feature-icon">🔒</div>
-                    <h3>Secure</h3>
-                    <p>Enterprise-grade security with end-to-end encryption. Your data is protected with military-level security.</p>
+                    <div class="feature-icon">📱</div>
+                    <h3>Responsive</h3>
+                    <p>Looks perfect on desktop, tablet, and mobile devices. Scales beautifully on any screen.</p>
                 </div>
 
                 <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>Analytics</h3>
-                    <p>Comprehensive insights and real-time analytics. Make data-driven decisions with powerful reporting tools.</p>
+                    <div class="feature-icon">🌈</div>
+                    <h3>Accessible</h3>
+                    <p>Friendly design that brings joy to everyone. High contrast and clear animations.</p>
                 </div>
 
                 <div class="feature-card">
-                    <div class="feature-icon">🤝</div>
-                    <h3>Easy Integration</h3>
-                    <p>Seamless API integration with your existing tools. Connect with 100+ popular services in minutes.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🌍</div>
-                    <h3>Global Scale</h3>
-                    <p>Available worldwide with local support. Serve your users anywhere with our global infrastructure.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">💬</div>
-                    <h3>Support 24/7</h3>
-                    <p>Dedicated support team ready to help. Get answers fast with our responsive support channels.</p>
+                    <div class="feature-icon">💚</div>
+                    <h3>Eco-Friendly</h3>
+                    <p>Minimal code footprint means less energy consumption. A cute choice for Mother Earth.</p>
                 </div>
             </div>
         </div>
@@ -330,9 +515,9 @@
 
     <section class="cta-section" id="contact">
         <div class="cta-section-content">
-            <h2>Ready to Get Started?</h2>
-            <p>Join thousands of users who are already building something great. Start your free trial today.</p>
-            <button class="cta-button">Start Your Free Trial</button>
+            <h2>Ready to Join the Axolotl Revolution?</h2>
+            <p>Experience the cutest pixel art animation on the web. Start your journey today!</p>
+            <button class="cta-button">Start Your Adventure</button>
         </div>
     </section>
 
@@ -346,7 +531,7 @@
                 <a href="#">Careers</a>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Your Company. All rights reserved.</p>
+                <p>&copy; 2026 Pixel Axolotl Co. Made with 💖 for axolotl lovers everywhere.</p>
             </div>
         </div>
     </footer>

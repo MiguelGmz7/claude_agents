@@ -6,6 +6,12 @@
       "sourceType": "github",
       "skillPath": "skills/frontend-design/SKILL.md",
       "computedHash": "89496d5dd00f4810205f351759594fc2742bf8eea85a2f2b2d1de59f4bd91576"
+    },
+    "openai-agents-sdk": {
+      "source": "laguagu/claude-code-nextjs-skills",
+      "sourceType": "github",
+      "skillPath": "skills/openai-agents-sdk/SKILL.md",
+      "computedHash": "e29d1e7afe5b48f6d178ff9cf8b9c1c071eecaa6c509b3f894e5670827f65185"
     }
   }
 }
